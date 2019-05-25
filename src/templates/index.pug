@@ -1,0 +1,181 @@
+extends _layout/layout
+
+//- Các giá trị mặc định cho trang web
+block variables
+	- var title = 'Home'
+	- var description = 'Description for home page'
+	- var bodyclass = 'home'
+
+//- Khai báo các mixin
+mixin services(Content, UrlImg)
+		.col-md-4.text-center
+			figure
+				img(src=`${UrlImg}`, alt= Content)
+			div
+				p= Content
+				.home-services-decription
+				| It is a long established fact that a reader will be distracted 
+
+//- Phần khai báo body
+block body
+	//- Bạn viết code vào đây nhớ là phải mở đầu bằng section ở mỗi khối
+	section.home-slider.home-slider-background
+		.container
+			.row.justify-content-center
+				.col-md-12
+					.owl-carousel.owl-theme
+						figure.item
+							img(src="./img/invention.png")
+							figcaption
+						figure.item
+							img(src="./img/invention.png", alt="")
+							figcaption
+						figure.item
+							img(src="./img/invention.png", alt="")
+							figcaption
+	section.home-news.home-about-us-background
+		.container
+			.row.justify-content-center
+				.home-about-us
+					h3.home-about-us-title Về chúng tôi
+					div
+						img(src="./img/flower-line.png", alt="")
+				.row.home-about-us-info
+					.col-12.col-sm-12.col-md-6.col-lg-4.home-about-us-responsive.home-about-us-item.home-about-us-item-1
+						div
+							.img.img-1
+							div
+								div
+									i.fa.fa-star-o
+									p Hot girl Trâm Anh
+								div
+									i.fa.fa-star-o
+									p 27/04/1995
+								div
+									i.fa.fa-star-o
+									p Make-up chuyên nghiệp. Có 5 năm kinh nghiệm.
+								div
+									i.fa.fa-star-o
+									p Từng làm trong các studio lớn ở TP. Hồ Chí Minh.
+
+					.col-12.col-sm-12.col-md-6.col-lg-4.home-about-us-item.home-about-us-item-2
+						.img-2
+					.col-12.col-sm-12.col-md-6.col-lg-4.home-about-us-responsive.home-about-us-item.home-about-us-item-3
+						div
+							.img.img-3
+							div
+								div
+									i.fa.fa-star-o
+									p Trần Đăng Khoa
+								div
+									i.fa.fa-star-o
+									p 20/05/1991
+								div
+									i.fa.fa-star-o
+									p Nhà tạo mẫu tóc với 10 năm kinh nghiệm.
+								div
+									i.fa.fa-star-o
+									p Từng là nhà tạo mẫu tóc cho các thí sinh dự thi hoa hậu ở nước Nhật và Úc.
+
+	section.home-clients.home-services
+		.container
+			.home-about-us
+				h3.home-about-us-title Dịch vụ
+				div
+					img(src="./img/flower-line.png", alt="")
+
+				.row
+					- const arrServices = ['Áo cưới', 'Trang điểm', 'Tạo mẫu tóc', 'Chụp ảnh', 'Sửa ảnh', 'Dịch vụ khác']
+					- const arrUrl = ['./img/wedding-dress.png', './img/make-up.png', './img/cut-hair.png', './img/camera.png', './img/cover-image.png', './img/differences.png']
+					each value, index in arrServices
+						if index < 3
+							+services(value, arrUrl[index])
+						else
+							+services(value, arrUrl[index])
+	section.home-library
+		.text-library
+			h2 Thư Viện
+			img(src="./img/flower-line.png", alt="")
+		.library
+			.row
+				.row
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+				.row
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+					.col-md-2.img-library
+						img(src="./img/home-library-01.png", alt="", srcset="")
+		.container
+			.button-library
+				button Xem thêm
+	section.home-story
+		.container
+			.text-story
+				h2 Câu chuyện tình yêu
+			.story
+				.row
+					.col-md-4
+						.contact-story
+							img(src="./img/home-story-01.png", alt="", srcset="")
+							h2 By spite about do of do allow blush
+							p Quick six blind smart out burst. Perfectly on furniture dejection determine my depending an to. Add short water court fat.
+							data Hồ Chí Minh, ngày 17/5/2019
+					.col-md-4
+						.contact-story
+							img(src="./img/home-story-01.png", alt="", srcset="")
+							h2 By spite about do of do allow blush
+							p Quick six blind smart out burst. Perfectly on furniture dejection determine my depending an to. Add short water court fat.
+							data Hồ Chí Minh, ngày 17/5/2019
+					.col-md-4
+						.contact-story
+							img(src="./img/home-story-01.png", alt="", srcset="")
+							h2 By spite about do of do allow blush
+							p Quick six blind smart out burst. Perfectly on furniture dejection determine my depending an to. Add short water court fat.
+							data Hồ Chí Minh, ngày 17/5/2019
+			.button-story
+				button Xem blog
+	section.home-contact
+		.container
+			.home-about-us
+				h2 Liên hệ
+				img(src="./img/flower-line.png", alt="")
+			.home-contact-new
+				.row
+					.col-md-6.order-sm-2
+						.contact-02
+							.text-contact
+								a(href="#")
+									i.fa.fa-map-marker(aria-hidden='true')   214 Đường Hiệp Bình, Thủ Đức, Hồ Chí Minh
+							.text-contact
+								a(href="#")
+									i.fa.fa-envelope(aria-hidden='true')   thonnps07668@fpt.edu.vn
+							.text-contact
+								a(href="#")
+									i.fa.fa-phone(aria-hidden='true')   (+84) 9615 44404
+							.text-contact
+								a(href="#")
+									i.fa.fa-facebook-square(aria-hidden='true')   Rosy Stuido
+							.button-contact
+								button Liên hệ ngay
+					.col-md-6.order-sx-1
+						.contact-01
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.637713547621!2d106.72652411159187!3d10.84564328002724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527d905b818d9%3A0x2301f033189c1857!2zMjE0IMSQxrDhu51uZyBIaeG7h3AgQsOsbmgsIEhp4buHcCBCw6xuaCBDaMOhbmgsIFRo4bunIMSQ4bupYywgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1558529994920!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
